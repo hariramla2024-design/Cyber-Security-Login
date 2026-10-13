@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Security Login</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Consolas, monospace;
+            background: #030712;
+            color: #00f7ff;
+            overflow: hidden;
+        }
+
+        /* Animated Cyber Grid */
+        .background {
+            position: fixed;
+            inset: 0;
+            background:
+                linear-gradient(rgba(0,247,255,.07) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,247,255,.07) 1px, transparent 1px);
+            background-size: 40px 40px;
+            animation: gridMove 8s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes gridMove {
+            from { background-position: 0 0; }
+            to { background-position: 40px 40px; }
+        }
+
+        /* Neon Glow */
+        .glow {
+            position: fixed;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: .5;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .glow-one {
+            background: #0055ff;
+            top: 5%;
+            left: 5%;
+        }
+
+        .glow-two {
+            background: #00ffff;
+            bottom: 5%;
+            right: 5%;
+        }
+
+        /* Login Card */
+        .container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .login-box {
+            width: 100%;
+            max-width: 430px;
+            padding: 40px 30px;
+            text-align: center;
+            background: rgba(3, 12, 30, .94);
+            border: 1px solid #00f7ff;
+            border-radius: 18px;
+            box-shadow: 0 0 30px rgba(0,247,255,.2);
+            animation: appear 1s ease-out;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: white;
+            text-shadow: 0 0 15px #00f7ff;
+            margin-bottom: 12px;
+        }
+
+        .subtitle {
+            color: #8cbfd8;
+            font-size: 12px;
+            letter-spacing: 3px;
+            margin-bottom: 28px;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            margin: 15px 0;
+            border: 1px solid #24627a;
+            border-radius: 6px;
+            background: #071426;
+            color: white;
+            font-size: 15px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #00f7ff;
+            box-shadow: 0 0 12px rgba(0,247,255,.4);
+        }
+
+        input::placeholder {
+            color: #8ba6bb;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 12px;
+            background: transparent;
+            border: 1px solid #00f7ff;
+            border-radius: 6px;
+            color: #00f7ff;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        button:hover {
+            background: #00f7ff;
+            color: #030712;
+            box-shadow: 0 0 25px #00f7ff;
+        }
+
+        .message {
+            margin-top: 20px;
+            padding: 12px;
+            border: 1px solid #ff4057;
+            border-radius: 6px;
+            color: #ff6678;
+            background: rgba(255,64,87,.08);
+            font-size: 13px;
+        }
+
+        .footer {
+            margin-top: 28px;
+            font-size: 10px;
+            color: #54758c;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="background"></div>
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+
+    <main class="container">
+        <section class="login-box">
+
+            <div class="icon">🔐</div>
+
+            <h1>LOGIN SECURITY</h1>
+
+            <p class="subtitle">CYBER DEFENSE SYSTEM</p>
+
+            <form method="POST" action="/">
+                <input
+                    type="text"
+                    name="username"
+                    placeholder="Enter Username"
+                    autocomplete="username"
+                    required
+                >
+
+                <input
+                    type="password"
+                    name="password"
+                    placeholder="Enter Password"
+                    autocomplete="current-password"
+                    required
+                >
+
+                <button type="submit">ACCESS SYSTEM →</button>
+            </form>
+
+            {% if message %}
+                <div class="message">⚠ {{ message }}</div>
+            {% endif %}
+
+            <div class="footer">
+                AUTHENTICATION • SECURITY • PROTECTION
+            </div>
+
+        </section>
+    </main>
+
+</body>
+</html>
